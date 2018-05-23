@@ -1,0 +1,36 @@
+NOTES for "THIS"
+
+With ES6 we have more control of 'this'
+
+With an Event
+	- it's the event
+
+With a regular function this is defined by what called it
+
+=> arrow functions
+	-it ignores who called it and inherits it for it's parent
+
+
+call - call is all about changing 'this'. Call it right NOW and put x as 'this' - call vs reference	
+bind - when you call that function LATER you're going to put this x as 'this' - reference vs call
+define
+
+
+let $thumbnails = document.querySelectoryAll('.thumbnail')
+
+$thumbnails.forEach(function($thumbnails){
+	$thumbnail.addEventListener('click', () =>{
+		event.target.style.width = '300px';
+		event.target.classList.add('active')
+	})
+})
+
+
+
+
+
+
+
+
+js in excel?
+
