@@ -85,7 +85,7 @@ header{
 		display: flex;
 		flex-direction: column;
 
-		#term{
+		#email{
 			font-size: 1em;
 			font-family: 'Marcellus', serif;
 		}
@@ -107,7 +107,7 @@ header{
 			transition: .25s;
 
 			&:hover{
-				background: $accent-color1;
+				background: $accent-color3;
 				transition: .25s;
 			}
 		}
@@ -117,7 +117,11 @@ header{
 			font-size: .8em;
 			padding-top: 5px;
 
+			&.appear{
+				color: #8a1a15;
+			}
 		}
+
 	}
 }
 
@@ -133,7 +137,58 @@ header{
 
 //info-page
 .info-form{
-	background: $accent-color;
+	background: $accent-color2;
+	color: $accent-color3;
+	border-top: 8px solid $primary-color;
+	border-bottom: 8px solid $primary-color;
+	transition: .25s;
+	font-size: .72em;
+
+	h2{
+		font-size: 2.8em;
+		color: $accent-color3;
+		text-shadow: 3px 3px 3px $accent-color1;
+		margin-bottom: 40px;
+	}
+
+	#myForm{
+		display: flex;
+		height: 350px;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: left;
+
+		label{
+			display: flex; 
+			text-shadow: 1px 1px 1px $accent-color1;
+
+			input, select{
+				font-size: .8em;
+				background: $accent-color3;
+				color: $accent-color1;
+				margin-left: 1%;
+			}
+
+			.pop-up{
+				padding: 5px 0 0 1%;
+				display: none;
+				color: red;
+
+				&.appear{
+					display: block;
+				}
+			}
+		}
+
+		a{
+			font-size: 1.3em;
+			text-align: center;
+
+			&:hover{
+					border: 3px solid $accent-color1;
+				}
+		}
+	}
 }
 
 
@@ -142,14 +197,61 @@ header{
 @media screen and (min-width: 768px){
 	.info{
 		form{
-			#submit{
+			a{
 				width: 25%;
 				transition: .25s;
 			}
 		}
 	}
+
+	.info-form{
+		font-size: 1em;
+		transition: .25s;
+		#myForm{
+			height: 400px;
+			label{
+				input, select{
+					font-size: 1em;
+				}
+			}
+
+			a{
+				font-size: 1em;
+			
+			}
+		}
+	}
 }
 
+/*Large Tablet*/
+@media screen and (min-width: 1024px){
+	.info{
+		form{
+			a{
+				width: 15%;
+				transition: .25s;
+			}
+		}
+	}
+
+	.info-form{
+		font-size: 1.2em;
+		transition: .25s;
+		#myForm{
+			height: 550px;
+			
+			label{
+				input, select{
+					font-size: 1.2em;
+				}
+			}
+
+			a{
+				font-size: .8em;
+			}
+		}
+	}
+}	
 
 
 
