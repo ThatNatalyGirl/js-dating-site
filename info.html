@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Form Validation</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="dist/css/main.css">
+		<link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+		
+	</head>
+	<body class="info-page">
+		<div class="wrapper">
+			<header>
+				<img src="dist/img/logo.png">
+				<h1>Grannies Mingle</h1>
+			</header>
+			<div class="info info-form">
+				<h2>Let's Get Started</h2>
+				<form id="myForm">
+					<label>First Name:
+						<input class="empty" type="text" name="term" id="first-name"/>
+					</label>
+
+					<label>Last Name:
+						<input class="empty" type="text" name="term" id="last-name"/>
+					</label>
+					
+					<label>Date of Birth:
+						<select name="month">
+							<option value="Month">Month</option>
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="September">September</option>
+							<option value="October">October</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+						</select>
+
+						<select name="date">
+							<option value="Date">Date</option>
+						</select>	
+
+						<select name="year">
+							<option value="Year">Year</option>
+						</select>	
+
+					</label>
+
+					<label>Email
+						<input class="empty" type="email" name="term" id="email"/>
+					</label>
+
+					<label>Password:
+						<input class="empty" type="password" name="term" id="password"/>
+					</label>
+
+					<label>Retype Password:
+						<input class="empty" type="password" name="term" id="password-match"/>
+					</label>
+
+					<a type="submit" id="submit-info" href="#">Join!</a>
+
+				</form>
+			</div>
+		</div>
+		<script src="dist/js/main.js"></script> 
+	</body>
+</html>

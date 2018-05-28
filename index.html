@@ -8,22 +8,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="dist/css/main.css">
-		<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
 		
 	</head>
-	<body>
-		<header>
-			<h1>Form Validation</h1>
-		</header>
+	<body class="home-page">
 		<div class="wrapper">
-			<h2>Enter Your Email Here!</h2>
-			<form id="myForm">
-				<label>Email:
-				<input type="email" name="term" id="term"/>
-				</label>
-				<input type="submit" value="Send Me!" id="submit">
-			</form>
+			<header>
+				<img src="dist/img/logo.png">
+				<h1>Grannies Mingle</h1>
+			</header>
+			<div class="info">
+				<h2>Enter Your Email Here!</h2>
+				<form id="myForm">
+					<label>
+						<input type="email" name="term" id="term"/>
+						<div class="pop-up">Please submit a valid email address</div>
+					</label>
+					<a type="submit" id="submit-home" href="info.html">Let's Begin!</a>
+				</form>
+			</div>
 		</div>
 
 		<script src="dist/js/main.js"></script>
