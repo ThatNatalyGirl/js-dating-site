@@ -18,7 +18,7 @@ var RangeValidator = function (_Validator) {
 
 		var _this = _possibleConstructorReturn(this, (RangeValidator.__proto__ || Object.getPrototypeOf(RangeValidator)).call(this, selector));
 
-		_this.min = min;
+		_this.min = min; //take arguments from constructor above and put them into properties of the class
 		_this.max = max;
 		return _this;
 	}
@@ -35,8 +35,9 @@ var RangeValidator = function (_Validator) {
 			if (numeric > this.max) {
 				this.errors.push("Number cannot be greater than " + this.max);
 			}
-			if (numeric > this.min) {
+			if (numeric < this.min) {
 				this.errors.push("Number cannot be less than " + this.min);
+				//you can use either manner to add the variable into your string
 			}
 		}
 	}]);

@@ -15,11 +15,14 @@ var Validator = function () {
 			return false;
 		}
 
-		//make an element to show errors in
-		this.$errorContainer = document.createElement('div');
-		this.$errorContainer.classList.add('error-message');
-		this.$field.parentElement.appendChild(this.$errorContainer);
+		this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
 
+		//make an element to show errors in
+		if (!this.$errorContainer) {
+			this.$errorContainer = document.createElement('div');
+			this.$errorContainer.classList.add('error-message');
+			this.$field.parentElement.appendChild(this.$errorContainer);
+		}
 		//keep track of errors
 		this.errors = [];
 

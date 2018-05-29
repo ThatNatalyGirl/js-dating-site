@@ -6,15 +6,18 @@ class Validator{
 		//find the field, show an error if it's not available - the $field is defined here by naming the selector that we're calling so we're going to be able to use the Validator big function that we're making and then call it elsewhere like in main.js and give it a selector to use that we are working to validate. We then refer to the function we are in and name it, but saying the item we queried from html is going to be named this.$field. 
 		this.$field = document.querySelector(selector);
 		if (!this.$field) {
-			console.warn(`Couldn't find an element with selector`, selector)
+			console.warn(`Couldn't find an element with selector`, selector);
 			return false;
 		}
 
+		this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
+
 		//make an element to show errors in
+		if(!this.$errorContainer) {
 		this.$errorContainer = document.createElement('div');
 		this.$errorContainer.classList.add('error-message');
 		this.$field.parentElement.appendChild(this.$errorContainer);
-		
+		}
 		//keep track of errors
 		this.errors = [];
 		
