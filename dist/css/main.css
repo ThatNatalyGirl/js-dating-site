@@ -214,7 +214,8 @@ header h1 {
 .info-form #myForm label .pop-up {
 	padding: 5px 0 0 1%;
 	display: none;
-	color: red;
+	color: #e2bab3;
+	font-size: .5em;
 }
 
 .info-form #myForm label .pop-up.appear {

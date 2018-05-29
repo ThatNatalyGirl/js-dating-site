@@ -172,7 +172,8 @@ header{
 			.pop-up{
 				padding: 5px 0 0 1%;
 				display: none;
-				color: red;
+				color: $secondary-color;
+				font-size: .5em;
 
 				&.appear{
 					display: block;

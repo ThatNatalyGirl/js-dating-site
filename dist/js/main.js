@@ -4,36 +4,45 @@ console.log('do you even,');
 // class formValidator {
 
 // 	constructor(parameters) {
+var firstNameInput = document.querySelector('#first-name');
+var lastNameInput = document.querySelector('#last-name');
 var emailInput = document.querySelector('#email');
-var input = document.querySelector('input');
+var passwordInput = document.querySelector('#password');
+var passwordMatchInput = document.querySelector('#password-match');
+var answer = document.querySelector('input');
+var inputs = document.querySelectorAll('input');
 var popup = document.querySelector('.pop-up');
+var popups = document.querySelectorAll('.pop-up');
 var button = document.querySelector('a');
 var asterick = document.querySelectorAll('label div');
 
-function emailVerification() {
-	// check to see if the string includes . and @
-	if (emailInput.value.includes('.') && emailInput.value.includes('@')) {
-		emailInput.classList.remove('fail');
-		emailInput.classList.add('pass');
-		popup.classList.remove('appear');
-		console.log('sweet');
-	} else {
-		emailInput.classList.remove('pass');
-		emailInput.classList.add('fail');
-	}
+function showError(inputItem, param1, param2) {
+	inputItem.addEventListener('blur', function () {
+		// check to see if the string includes . and @
+		if (inputItem.value.includes('.') && inputItem.value.includes('@')) {
+			inputItem.classList.remove('fail');
+			inputItem.classList.add('pass');
+			popup.classList.remove('appear');
+			console.log('sweet');
+		} else {
+			inputItem.classList.remove('pass');
+			inputItem.classList.add('fail');
+		}
+	});
 }
 
-document.body.addEventListener('keyup', function () {
-	emailVerification();
-});
+showError();
 
 button.addEventListener('click', function (e) {
-	//loop through all the inputs
-	if (input.className === "pass") {} else if (input.className === "fail" || input.value === '') {
-		e.preventDefault();
-		console.log('staaaaaap');
-		popup.classList.add('appear');
-	}
+	inputs.forEach(function (input) {
+		if (input.className === "pass") {} else if (input.className !== "pass" || input.value === '') {
+			e.preventDefault();
+			console.log('staaaaaap');
+			popups.forEach(function (popup) {
+				popup.classList.add('appear');
+			});
+		}
+	});
 });
 
 // infoButton.addEventListener('click', function(e){
@@ -51,6 +60,17 @@ button.addEventListener('click', function (e) {
 // } else if(){
 // 	asterick.style.display = 'block';
 // }
+// })
+
+
+// inputs.addEventListener("blur", function(event) {
+//   event.target.style.background = "blue";    
+// }, true);
+
+// popups.forEach(function(popup){
+// 	if inputs.className === 'pass'{
+// 		popup.classList.remove('appear');
+// 	}
 // })
 
 
