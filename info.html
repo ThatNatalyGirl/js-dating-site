@@ -31,30 +31,9 @@
 					</label>
 					
 					<label>Date of Birth:
-						<select name="month">
-							<option value="Month">Month</option>
-							<option value="January">January</option>
-							<option value="February">February</option>
-							<option value="March">March</option>
-							<option value="April">April</option>
-							<option value="May">May</option>
-							<option value="June">June</option>
-							<option value="July">July</option>
-							<option value="August">August</option>
-							<option value="September">September</option>
-							<option value="October">October</option>
-							<option value="November">November</option>
-							<option value="December">December</option>
-						</select>
-
-						<select name="date">
-							<option value="Date">Date</option>
-						</select>	
-
-						<select name="year">
-							<option value="Year">Year</option>
-						</select>	
-
+						<input class="small" type="number" name="day" placeholder="DD">
+						<input class="small" type="number" name="month" placeholder="MM">
+						<input class="small" type="number" name="year" placeholder="YY">
 						<div class="pop-up">*required</div>
 					</label>
 
@@ -78,6 +57,8 @@
 				</form>
 			</div>
 		</div>
-		<script src="dist/js/main.js"></script> 
+		<script src="dist/js/Validator.js"></script>
+		<script src="dist/js/EmailValidator.js"></script>
+		<script src="dist/js/main.js"></script>
 	</body>
 </html>

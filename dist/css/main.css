@@ -204,11 +204,16 @@ header h1 {
 	text-shadow: 1px 1px 1px #36374b;
 }
 
-.info-form #myForm label input, .info-form #myForm label select {
+.info-form #myForm label input {
 	font-size: .8em;
 	background: #b3b1d8;
 	color: #36374b;
 	margin-left: 1%;
+	border: 5px solid transparent;
+}
+
+.info-form #myForm label .small {
+	width: 10%;
 }
 
 .info-form #myForm label .pop-up {
@@ -244,8 +249,11 @@ header h1 {
 	.info-form #myForm {
 		height: 400px;
 	}
-	.info-form #myForm label input, .info-form #myForm label select {
+	.info-form #myForm label input {
 		font-size: 1em;
+	}
+	.info-form #myForm label .small {
+		width: 10%;
 	}
 	.info-form #myForm a {
 		font-size: 1em;

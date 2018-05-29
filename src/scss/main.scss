@@ -162,12 +162,17 @@ header{
 			display: flex; 
 			text-shadow: 1px 1px 1px $accent-color1;
 
-			input, select{
+			input{
 				font-size: .8em;
 				background: $accent-color3;
 				color: $accent-color1;
 				margin-left: 1%;
+				border: 5px solid transparent;
 			}
+
+			.small{
+					width: 10%;
+				}
 
 			.pop-up{
 				padding: 5px 0 0 1%;
@@ -211,8 +216,12 @@ header{
 		#myForm{
 			height: 400px;
 			label{
-				input, select{
+				input{
 					font-size: 1em;
+				}
+
+				.small{
+					width: 10%;
 				}
 			}
 
