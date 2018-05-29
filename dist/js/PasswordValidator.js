@@ -11,139 +11,79 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PasswordValidator = function (_Validator) {
-				_inherits(PasswordValidator, _Validator);
+	_inherits(PasswordValidator, _Validator);
 
-				function PasswordValidator(selector) {
-								_classCallCheck(this, PasswordValidator);
+	function PasswordValidator(selector) {
+		_classCallCheck(this, PasswordValidator);
 
-								return _possibleConstructorReturn(this, (PasswordValidator.__proto__ || Object.getPrototypeOf(PasswordValidator)).call(this, selector));
-				}
+		return _possibleConstructorReturn(this, (PasswordValidator.__proto__ || Object.getPrototypeOf(PasswordValidator)).call(this, selector));
+	}
 
-				_createClass(PasswordValidator, [{
-								key: 'validate',
-								value: function validate() {
-												_get(PasswordValidator.prototype.__proto__ || Object.getPrototypeOf(PasswordValidator.prototype), 'validate', this).call(this);
+	_createClass(PasswordValidator, [{
+		key: 'validate',
+		value: function validate() {
+			_get(PasswordValidator.prototype.__proto__ || Object.getPrototypeOf(PasswordValidator.prototype), 'validate', this).call(this);
 
-												if (!this.$field.value.includes('@')) {
-																this.errors.push('Must include a capital letter');
-												}
+			if (!this.$field.value.includes('@' || '?' || '!' || '$' || '%' || '#' || '&')) {
+				this.errors.push('Must include (!@#$%&)');
+			}
 
-												if (!this.$field.value.includes('.')) {
-																this.errors.push('Must include a lowercase letter');
-												}
+			if (this.$field.value.includes('^' || '.' || ',' || '~' || '*' || '(' || ')' || '{' || '}' || '[' || ']' || '+' || '=')) {
+				this.errors.push('Cannot include (^.,~*(){}[]+=)');
+			}
 
-												if (!this.$field.value.includes('.')) {
-																this.errors.push('Cannot include');
-												}
+			if (!this.$field.value.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
+				this.errors.push('Must include a number');
+			}
 
-												if (!this.$field.value.length(8)) {
-																this.errors.push('Must include a special character');
-												}
-								}
-				}]);
+			if (!this.$field.value === this.$field.toUpperCase()) {
+				this.errors.push('Must include an uppercase');
+			}
 
-				return PasswordValidator;
+			if (!this.$field.value === this.$field.toUpperCase()) {
+				this.errors.push('Must include an lowercase');
+			}
+			// function charLength() {
+			// 	if( this.$field.value.length >= 8 ) {
+			// 		return true;
+			// 	} else{
+			// 	 this.errors.push(`Must be at least 8 characters`)
+			// 	}
+			// }
+
+			// function lowercase() {
+			// 	var regex = /^(?=.*[a-z]).+$/; // Lowercase character pattern
+
+			// 	if( regex.test(this.$field.value) ) {
+			// 		return true;
+			// 	} else{
+			// 	 this.errors.push(`Must include a lowercase letter`)
+			// 	}
+			// }
+
+			// function uppercase() {
+			// 	var regex = /^(?=.*[A-Z]).+$/; // Uppercase character pattern
+
+			// 	if( regex.test(this.$field.value) ) {
+			// 		return true;
+			// 	} else{
+			// 	 this.errors.push(`Must include a uppercase letter`)
+			// 	}
+			// }
+
+			// function special() {
+			// 	var regex = /^(?=.*[0-9_\W]).+$/; // Special character or number pattern
+
+			// 	if( regex.test(this.$field.value) ) {
+			// 		return true;
+			// 	} else{
+			// 	 this.errors.push(`Must include a special character or number`)
+			// 	}
+			// }
+
+		}
+	}]);
+
+	return PasswordValidator;
 }(Validator);
-
-// (function(){
-//     var password = document.querySelector('.password');
-
-//     var helperText = {
-//         charLength: document.querySelector('.helper-text .length'),
-//         lowercase: document.querySelector('.helper-text .lowercase'),
-//         uppercase: document.querySelector('.helper-text .uppercase'),
-//         special: document.querySelector('.helper-text .special')
-//     };
-
-//     var pattern = {
-//         charLength: function() {
-//             if( password.value.length >= 8 ) {
-//                 return true;
-//             }
-//         },
-//         lowercase: function() {
-//             var regex = /^(?=.*[a-z]).+$/; // Lowercase character pattern
-
-//             if( regex.test(password.value) ) {
-//                 return true;
-//             }
-//         },
-//         uppercase: function() {
-//             var regex = /^(?=.*[A-Z]).+$/; // Uppercase character pattern
-
-//             if( regex.test(password.value) ) {
-//                 return true;
-//             }
-//         },
-//         special: function() {
-//             var regex = /^(?=.*[0-9_\W]).+$/; // Special character or number pattern
-
-//             if( regex.test(password.value) ) {
-//                 return true;
-//             }
-//         }   
-//     };
-
-//     // Listen for keyup action on password field
-//   password.addEventListener('keyup', function (){
-//         // Check that password is a minimum of 8 characters
-//         patternTest( pattern.charLength(), helperText.charLength );
-
-//         // Check that password contains a lowercase letter      
-//         patternTest( pattern.lowercase(), helperText.lowercase );
-
-//         // Check that password contains an uppercase letter
-//         patternTest( pattern.uppercase(), helperText.uppercase );
-
-//         // Check that password contains a number or special character
-//         patternTest( pattern.special(), helperText.special );
-
-//     // Check that all requirements are fulfilled
-//     if( hasClass(helperText.charLength, 'valid') &&
-//               hasClass(helperText.lowercase, 'valid') && 
-//                 hasClass(helperText.uppercase, 'valid') && 
-//               hasClass(helperText.special, 'valid')
-//         ) {
-//             addClass(password.parentElement, 'valid');
-//     }
-//     else {
-//       removeClass(password.parentElement, 'valid');
-//     }
-//     });
-
-//     function patternTest(pattern, response) {
-//         if(pattern) {
-//       addClass(response, 'valid');
-//     }
-//     else {
-//       removeClass(response, 'valid');
-//     }
-//     }
-
-//     function addClass(el, className) {
-//         if (el.classList) {
-//             el.classList.add(className);
-//         }
-//         else {
-//             el.className += ' ' + className;
-//         }
-//     }
-
-//     function removeClass(el, className) {
-//         if (el.classList)
-//                 el.classList.remove(className);
-//             else
-//                 el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-//     }
-
-//     function hasClass(el, className) {
-//         if (el.classList) {
-//             return el.classList.contains(className);    
-//         }
-//         else {
-//             new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className); 
-//         }
-//     }
-
-// })();
 //# sourceMappingURL=PasswordValidator.js.map

@@ -1,16 +1,15 @@
 
-class PasswordMatchValidator extends PasswordValidator {
+class PasswordMatchValidator extends Validator {
 
 	constructor(selector){
-		super(selector);
+		super(selector); 
 	}
 
 	validate() {
-			super.validate();
-			
-			if (matchingSelector.value === true && this.$field.value !== matchingSelector.value) {
-				this.errors.push("Must match password");
-			}
+		super.validate();
+
+		if (!this.$field.value === ){
+			this.errors.push(`Must match Password`);
 		}
 	}
 }
