@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10,36 +10,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//email validator takes everything from validator and can add to it. It can access it and it knows about it but not vice versa
+var RangeValidator = function (_Validator) {
+	_inherits(RangeValidator, _Validator);
 
-var EmailValidator = function (_Validator) {
-	_inherits(EmailValidator, _Validator);
+	function RangeValidator(selector, min, max) {
+		_classCallCheck(this, RangeValidator);
 
-	//We don't need to call it in this case bc it's not changing but just so we can see....
-	function EmailValidator(selector) {
-		_classCallCheck(this, EmailValidator);
+		var _this = _possibleConstructorReturn(this, (RangeValidator.__proto__ || Object.getPrototypeOf(RangeValidator)).call(this, selector));
 
-		return _possibleConstructorReturn(this, (EmailValidator.__proto__ || Object.getPrototypeOf(EmailValidator)).call(this, selector)); //call the constructor from Validator() - super is saying I want all the stuff in your constructor here and be able to use it. If we don't use it then the constructor we use here is just getting redefined so it's all new stuff. You can call it wherever you need in the function
-		// 	console.log(`constructor from EmailValidator`)
+		_this.min = min;
+		_this.max = max;
+		return _this;
 	}
 
-	_createClass(EmailValidator, [{
-		key: 'validate',
+	_createClass(RangeValidator, [{
+		key: "validate",
 		value: function validate() {
-			//to make it's own version
-			_get(EmailValidator.prototype.__proto__ || Object.getPrototypeOf(EmailValidator.prototype), 'validate', this).call(this);
-			//here is where the time out is necessary. The HACK puts a delay so that we can actually get errors from the code below before outputting
+			_get(RangeValidator.prototype.__proto__ || Object.getPrototypeOf(RangeValidator.prototype), "validate", this).call(this);
 
-			if (!this.$field.value.includes('@')) {
-				this.errors.push('Must include an @');
+			var numeric = parseFloat(this.$field.value);
+			if (isNaN(numeric)) {
+				this.errors.push("Must be a number");
 			}
-
-			if (!this.$field.value.includes('.')) {
-				this.errors.push('Must include a \'.\'');
+			if (numeric > this.max) {
+				this.errors.push("Number cannot be greater than " + this.max);
+			}
+			if (numeric > this.min) {
+				this.errors.push("Number cannot be less than " + this.min);
 			}
 		}
 	}]);
 
-	return EmailValidator;
+	return RangeValidator;
 }(Validator);
-//# sourceMappingURL=EmailValidator.js.map
+//# sourceMappingURL=RangeValidator.js.map

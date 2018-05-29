@@ -8,7 +8,9 @@ class EmailValidator extends Validator {
 	}
 
 	validate() {
+		//to make it's own version
 		super.validate();
+		//here is where the time out is necessary. The HACK puts a delay so that we can actually get errors from the code below before outputting
 
 		if (!this.$field.value.includes('@')) {
 			this.errors.push(`Must include an @`);

@@ -42,7 +42,7 @@ var Validator = function () {
 			}
 
 			//by putting it in a timeout it's going to go the end of the callstack and gives all the other js's a chance to run
-			//this is a HACK! :O
+			//this is a HACK!!!!!! :O
 			setTimeout(this.showErrors.bind(this), 0);
 		}
 	}, {
@@ -50,9 +50,10 @@ var Validator = function () {
 		value: function showErrors() {
 			var _this = this;
 
+			this.$errorContainer.innerHTML = "";
 			if (this.errors.length) {
 				this.$field.style.borderColor = '#d02f28';
-				this.$errorContainer.innerHTML = "";
+
 				this.errors.forEach(function (error) {
 					_this.$errorContainer.innerHTML += '<p>' + error + '</p>';
 				});
@@ -63,7 +64,6 @@ var Validator = function () {
 				// this.$errorContainer.innerHTML = this.errors;
 			} else {
 				this.$field.style.borderColor = '#18a77d';
-				this.$errorContainer.innerHTML = "";
 			}
 		}
 	}]);

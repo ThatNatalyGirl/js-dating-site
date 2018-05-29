@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -20,16 +20,12 @@ var YearValidator = function (_Validator) {
 	}
 
 	_createClass(YearValidator, [{
-		key: 'validate',
+		key: "validate",
 		value: function validate() {
-			_get(YearValidator.prototype.__proto__ || Object.getPrototypeOf(YearValidator.prototype), 'validate', this).call(this);
+			_get(YearValidator.prototype.__proto__ || Object.getPrototypeOf(YearValidator.prototype), "validate", this).call(this);
 
-			if (!this.$field.value.includes('@')) {
-				this.errors.push('Must include an @');
-			}
-
-			if (!this.$field.value.includes('.')) {
-				this.errors.push('Must include a \'.\'');
+			if (!this.$field.value < 2000 || !this.$field.value > 1900) {
+				this.errors.push("Must Be 18 Years of Age to participate");
 			}
 		}
 	}]);

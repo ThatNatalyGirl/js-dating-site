@@ -7,12 +7,9 @@ class YearValidator extends Validator {
 	validate() {
 		super.validate();
 
-		if (!this.$field.value.includes('@')) {
-			this.errors.push(`Must include an @`);
+		if (!this.$field.value < 2000 || !this.$field.value > 1900) {
+			this.errors.push(`Must Be 18 Years of Age to participate`);
 		}
-
-		if (!this.$field.value.includes('.')) {
-			this.errors.push(`Must include a '.'`);
-		}
+		
 	}
 }
