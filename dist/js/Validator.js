@@ -8,7 +8,7 @@ var Validator = function () {
 	function Validator(selector) {
 		_classCallCheck(this, Validator);
 
-		//find the field, show an error if it's not available - the $field is defined here by naming the selector that we're calling so we're going to be able to use the Validator big function that we're making and then call it elsewhere like in main.js and give it a selector to use that we are working to validate. We then refer to the function we are in an name it but saying the item we queried from html is going to be named this.$field. 
+		//find the field, show an error if it's not available - the $field is defined here by naming the selector that we're calling so we're going to be able to use the Validator big function that we're making and then call it elsewhere like in main.js and give it a selector to use that we are working to validate. We then refer to the function we are in and name it, but saying the item we queried from html is going to be named this.$field. 
 		this.$field = document.querySelector(selector);
 		if (!this.$field) {
 			console.warn('Couldn\'t find an element with selector', selector);
@@ -25,7 +25,7 @@ var Validator = function () {
 
 		//when the user does keyup call a modified version of validate that has the a class as 'this' . If you bind it. it is saying that the this from before is being translated after this
 		//add event listener to call this.validate, but overrule its 'this' logic, and force its 'this' to be the Validate class instance
-		//So here below it's trying to redefine this but by binding it it is keeping the original this from there on. 
+		//So here below it's trying to redefine 'this' but by binding it, it is keeping the original this from there on. 
 		this.$field.addEventListener('keyup', this.validate.bind(this));
 		this.$field.addEventListener('blur', this.validate.bind(this));
 	}
@@ -38,7 +38,7 @@ var Validator = function () {
 			this.errors = [];
 
 			if (!this.$field.value) {
-				this.errors.push('Fill out the field Dummy!');
+				this.errors.push('*Required');
 			}
 
 			//by putting it in a timeout it's going to go the end of the callstack and gives all the other js's a chance to run
@@ -51,7 +51,7 @@ var Validator = function () {
 			var _this = this;
 
 			if (this.errors.length) {
-				this.$field.style.borderColor = '#8a1a15';
+				this.$field.style.borderColor = '#d02f28';
 				this.$errorContainer.innerHTML = "";
 				this.errors.forEach(function (error) {
 					_this.$errorContainer.innerHTML += '<p>' + error + '</p>';
@@ -62,7 +62,7 @@ var Validator = function () {
 				// }
 				// this.$errorContainer.innerHTML = this.errors;
 			} else {
-				this.$field.style.borderColor = '#18a78e';
+				this.$field.style.borderColor = '#18a77d';
 				this.$errorContainer.innerHTML = "";
 			}
 		}
