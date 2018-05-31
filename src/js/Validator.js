@@ -29,7 +29,7 @@ class Validator{
 	}
 
 	validate() {
-		console.log(`Rawr`);
+		console.log(`validateeeee`);
 
 		this.errors = [];
 

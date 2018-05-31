@@ -1,25 +1,63 @@
-
 class PasswordValidator extends Validator {
 
 	constructor(selector){
 		super(selector);
 	}
+        
+        validate(){
+            super.validate();
+    
+            const char = /^(?=.*[!@#$%^&*])/
+    
+            if (!this.$field.value.match(char)){
+            this.errors.push(`Your Must include (!@#$%^&*)`)
+            console.log('ugh')
+            }
+        }
+    }
 
-	validate() {
-		super.validate();
 
 
-		if (!this.$field.value.includes('@' || '?' || '!' || '$' || '%' || '#' || '&')) {
-			this.errors.push(`Must include (!@#$%&)`);
-		}
 
-		if (this.$field.value.includes('^' || '.' || ',' || '~' || '*' || '(' || ')' || '{' || '}' || '[' || ']' || '+' || '=')) {
-			this.errors.push(`Cannot include (^.,~*(){}[]+=)`);
-		}
 
-		if (!this.$field.value.includes(1|| 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
-			this.errors.push(`Must include a number`)
-		}
+// class PasswordValidator extends Validator {
+
+// 	constructor(selector){
+// 		super(selector, included, excluded);
+// 	}
+
+// 	validate() {
+// 		super.validate();
+
+
+		// var password = this.$field.value;
+		// var includedChars= this.included;
+		// var excludedChars= this.excluded;
+
+		// function contains(target, pattern){
+		// 	var value = 0;
+		// 	pattern.forEach(function(word){
+		// 		value = value + target.includes(word);
+		// 	});
+		// 	return (value === 1)
+		// }
+
+		// console.log(contains(this.selector, this.included));
+
+
+
+
+		// if (!this.$field.value.includes('@' || '?' || '!' || '$' || '%' || '#' || '&')) {
+		// 	this.errors.push(`Must include (!@#$%&)`);
+		// }
+
+		// if (this.$field.value.includes('^' || '.' || ',' || '~' || '*' || '(' || ')' || '{' || '}' || '[' || ']' || '+' || '=')) {
+		// 	this.errors.push(`Cannot include (^.,~*(){}[]+=)`);
+		// }
+
+		// if (!this.$field.value.includes(1|| 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
+		// 	this.errors.push(`Must include a number`)
+		// }
 
 		// if (!this.$field.value === (this.$field.toUpperCase())) {
 		// 	this.errors.push(`Must include an uppercase`)
