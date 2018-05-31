@@ -15,7 +15,7 @@ var Validator = function () {
 			return false;
 		}
 
-		this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
+		// this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
 
 		//make an element to show errors in
 		if (!this.$errorContainer) {
@@ -36,7 +36,7 @@ var Validator = function () {
 	_createClass(Validator, [{
 		key: 'validate',
 		value: function validate() {
-			console.log('Rawr');
+			console.log('validateeeee');
 
 			this.errors = [];
 

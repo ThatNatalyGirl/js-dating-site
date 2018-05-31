@@ -10,43 +10,40 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//email validator takes everything from validator and can add to it. It can access it and it knows about it but not vice versa
+var UpperLowerValidator = function (_Validator) {
+	_inherits(UpperLowerValidator, _Validator);
 
-var EmailValidator = function (_Validator) {
-	_inherits(EmailValidator, _Validator);
+	function UpperLowerValidator() {
+		_classCallCheck(this, UpperLowerValidator);
 
-	//We don't need to call it in this case bc it's not changing but just so we can see....
-	function EmailValidator(selector) {
-		_classCallCheck(this, EmailValidator);
-
-		return _possibleConstructorReturn(this, (EmailValidator.__proto__ || Object.getPrototypeOf(EmailValidator)).call(this, selector)); //call the constructor from Validator() - super is saying I want all the stuff in your constructor here and be able to use it. If we don't use it then the constructor we use here is just getting redefined so it's all new stuff. You can call it wherever you need in the function
-		// 	console.log(`constructor from EmailValidator`)
+		return _possibleConstructorReturn(this, (UpperLowerValidator.__proto__ || Object.getPrototypeOf(UpperLowerValidator)).apply(this, arguments));
 	}
 
-	_createClass(EmailValidator, [{
+	_createClass(UpperLowerValidator, [{
 		key: "validate",
 		value: function validate() {
-			//to make it's own version
-			_get(EmailValidator.prototype.__proto__ || Object.getPrototypeOf(EmailValidator.prototype), "validate", this).call(this);
-			//here is where the time out is necessary. The HACK puts a delay so that we can actually get errors from the code below before outputting
+			_get(UpperLowerValidator.prototype.__proto__ || Object.getPrototypeOf(UpperLowerValidator.prototype), "validate", this).call(this);
 
-			//this is a regex expression. You can google search to get one and apply it to a variable and then use it. https://regexr.com/ helps and http://emailregex.com/ is where we got this one from. There are lots of regex testers out there to apply on your websites. Just know that it exists and how to use it. Here is should work.
-			var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var lowerRegex = /[a-z]/;
+			var upperRegex = /[A-Z]/;
 
-			if (!this.$field.value.match(emailRegex)) {
-				this.errors.push("Your email address is not valid");
+			if (!this.$field.value.match(lowerRegex)) {
+				this.errors.push("Must have a lowercase letter");
 			}
 
-			// if (!this.$field.value.includes('@')) {
-			// 	this.errors.push(`Must include an @`);
-			// }
+			if (!this.$field.value.match(upperRegex)) {
+				this.errors.push("Must have a capital letter");
+			}
 
-			// if (!this.$field.value.includes('.')) {
-			// 	this.errors.push(`Must include a '.'`);
+			// var letterRegex = /^(?=.*[a-z])(?=.*[A-Z])/;
+
+			// if (!this.$field.value.match(letterRegex)){
+			// 	console.log(!this.$field.value)
+			// 	this.errors.push(`Must have a capital and lowercase letter`)
 			// }
 		}
 	}]);
 
-	return EmailValidator;
+	return UpperLowerValidator;
 }(Validator);
-//# sourceMappingURL=EmailValidator.js.map
+//# sourceMappingURL=UpperLowerValidator.js.map

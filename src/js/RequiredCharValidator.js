@@ -1,20 +1,38 @@
-class PasswordValidator extends Validator {
+class RequiredCharValidator extends Validator {
 
-	constructor(selector){
+	constructor(selector, requiredChar){
 		super(selector);
+		this.requiredChar = requiredChar;
 	}
-        
-        validate(){
-            super.validate();
-    
-            const char = /^(?=.*[!@#$%^&*])/
-    
-            if (!this.$field.value.match(char)){
-            this.errors.push(`Your Must include (!@#$%^&*)`)
-            console.log('ugh')
-            }
-        }
-    }
+
+	validate(){
+		super.validate();
+
+		let foundARequiredChar = false;
+		this.requiredChar.forEach((char) => {
+			if (this.$field.value.includes(char)){
+			foundARequiredChar = true;
+			}
+		});
+
+		if(!foundARequiredChar) {
+			this.errors.push('You must include one of these characters: ' + this.requiredChar);
+		}
+	}
+}
+
+		
+	//     validate(){
+	//         super.validate();
+	
+	//         const char = /^(?=.*[!@#$%^&*])/
+	
+	//         if (!this.$field.value.match(char)){
+	//         this.errors.push(`Your Must include (!@#$%^&*)`)
+	//         console.log('ugh')
+	//         }
+	//     }
+	// }
 
 
 
@@ -105,8 +123,6 @@ class PasswordValidator extends Validator {
 		// }
 
 		
-	}
-}
 	
 
 

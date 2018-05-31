@@ -1,4 +1,4 @@
-class CapLowerValidator extends Validator {
+class UpperLowerValidator extends Validator {
     validate(){
         super.validate();
 
