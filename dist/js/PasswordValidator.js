@@ -36,13 +36,13 @@ var PasswordValidator = function (_Validator) {
 				this.errors.push('Must include a number');
 			}
 
-			if (!this.$field.value === this.$field.toUpperCase()) {
-				this.errors.push('Must include an uppercase');
-			}
+			// if (!this.$field.value === (this.$field.toUpperCase())) {
+			// 	this.errors.push(`Must include an uppercase`)
+			// }
 
-			if (!this.$field.value === this.$field.toUpperCase()) {
-				this.errors.push('Must include an lowercase');
-			}
+			// if (!this.$field.value === (this.$field.toUpperCase())) {
+			// 	this.errors.push(`Must include an lowercase`)
+			// }
 			// function charLength() {
 			// 	if( this.$field.value.length >= 8 ) {
 			// 		return true;

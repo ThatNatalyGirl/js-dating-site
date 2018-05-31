@@ -1,4 +1,5 @@
 class RangeValidator extends Validator {
+
 	constructor(selector, min, max){
 		super(selector); 
 		this.min = min //take arguments from constructor above and put them into properties of the class

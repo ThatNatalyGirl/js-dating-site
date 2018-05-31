@@ -13,23 +13,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var PasswordMatchValidator = function (_Validator) {
 	_inherits(PasswordMatchValidator, _Validator);
 
-	function PasswordMatchValidator(selector) {
+	function PasswordMatchValidator(selector, matchee) {
 		_classCallCheck(this, PasswordMatchValidator);
 
-		return _possibleConstructorReturn(this, (PasswordMatchValidator.__proto__ || Object.getPrototypeOf(PasswordMatchValidator)).call(this, selector));
+		var _this = _possibleConstructorReturn(this, (PasswordMatchValidator.__proto__ || Object.getPrototypeOf(PasswordMatchValidator)).call(this, selector));
+
+		_this.$text = document.querySelector(matchee);
+		_this.matchee = matchee;
+		return _this;
 	}
 
 	_createClass(PasswordMatchValidator, [{
 		key: 'validate',
 		value: function validate() {
+
 			_get(PasswordMatchValidator.prototype.__proto__ || Object.getPrototypeOf(PasswordMatchValidator.prototype), 'validate', this).call(this);
+			console.log(this.$field.value + ' this is the field value');
+			console.log(this.$text.value + ' this is the matchee value');
 
-			if (!this.$field.value.includes('@')) {
-				this.errors.push('Must include an @');
-			}
-
-			if (!this.$field.value.includes('.')) {
-				this.errors.push('Must include a \'.\'');
+			if (this.$field.value === this.$text.value) {
+				console.log('match');
+			} else {
+				this.errors.push('Must match Password');
+				console.log('no match');
 			}
 		}
 	}]);
