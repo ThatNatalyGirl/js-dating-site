@@ -11,8 +11,3 @@ let validatorYear = new RangeValidator('[name=year]', 1900, new Date().getFullYe
 //to make sure that they are at least 18 years of age
 
 
-
-// let validatorDay = new DayValidator('[name=day]');
-// let validatorMonth = new MonthValidator('[name=month]');
-// let validatorYear = new YearValidator('[name=year]');
-
